@@ -1,0 +1,7 @@
+kernel here is stock mediacom kernel with no mtk header
+
+
+(dd if=kernel of=kernel_without_header bs=1 skip=512)
+
+
+

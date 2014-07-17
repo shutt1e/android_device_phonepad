@@ -1,0 +1,4 @@
+# ril properties
+rild.libpath=/system/lib/mtk-ril.so
+rild.libargs=-d /dev/ttyC0
+ro.telephony.ril_class=MediaTekRIL

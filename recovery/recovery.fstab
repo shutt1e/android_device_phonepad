@@ -1,0 +1,10 @@
+/emmc@android     /system             ext4      ro,noatime                              wait
+/emmc@cache       /cache              ext4      noatime,nosuid,nodev,noauto_da_alloc    wait
+/emmc@usrdata     /data               ext4      noatime,nosuid,nodev,noauto_da_alloc    wait,encryptable=footer
+/dev/bootimg      /boot               emmc      defaults          			defaults
+/dev/recovery     /recovery           emmc      defaults                                defaults
+/dev/uboot	  /uboot	      emmc	defaults				defaults	
+/dev/block/mmcblk1p1	/external_sd	vfat	defaults				defaults
+/devices/platform/mtk-msdc.0/mmc_host/mmc0 auto auto defaults voldmanaged=sdcard0:8,nonremovable,noemulatedsd
+/devices/platform/mtk-msdc.1/mmc_host/mmc1 auto auto defaults voldmanaged=sdcard1:auto
+
