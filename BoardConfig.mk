@@ -18,6 +18,9 @@ DEVICE_FOLDER := device/mediacom/PhonePadDuo
 
 -include vendor/mediacom/PhonePadDuo/BoardConfigVendor.mk
 
+# MTK ENV
+MTK_PATH_CUSTOM := ./mediatek
+
 # board
 TARGET_BOARD_PLATFORM := mt6589
 TARGET_ARCH := arm
@@ -35,6 +38,15 @@ TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 
 # power
 TARGET_POWERHAL_VARIANT := cm
+
+#gfx
+MTK_HWC_CHIP := mt6589
+MTK_HWC_SUPPORT := true
+MTK_WFD_SUPPORT := true
+MTK_PQ_SUPPORT := true
+MTK_ION_SUPPORT := true
+
+#camera
 
 # boot
 TARGET_NO_BOOTLOADER := true
@@ -56,6 +68,15 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/mediacom/PhonePadDuo/bluet
 # kernel
 TARGET_PREBUILT_KERNEL := $(DEVICE_FOLDER)/prebuilt/kernel
 TARGET_KERNEL_SELINUX_CONFIG :=
+TARGET_PROVIDES_INIT_RC := true
+# adb has root
+ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=0  # debug
+ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0  # debug
+ADDITIONAL_DEFAULT_PROPERTIES += ro.allow.mock.location=1
+ADDITIONAL_DEFAULT_PROPERTIES += persist.mtk.aee.aed=on
+ADDITIONAL_DEFAULT_PROPERTIES += persist.service.adb.enable=1
+ADDITIONAL_DEFAULT_PROPERTIES += persist.sys.usb.config=mass_storage,adb
+ADDITIONAL_DEFAULT_PROPERTIES += ro.mount.fs=EXT4
 
 # partition info
 BOARD_BOOTIMAGE_PARTITION_SIZE := 6291456
@@ -96,4 +117,6 @@ WIFI_DRIVER_FW_PATH_P2P := "STA+P2P"
 
 # telephony
 BOARD_RIL_CLASS := ../../../device/mediacom/PhonePadDuo/ril/
+
+
 

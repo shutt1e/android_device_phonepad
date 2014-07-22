@@ -43,12 +43,16 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/fstab.mt6589:root/fstab.mt6589
 
 PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/root/init:root/init \
+	$(LOCAL_PATH)/root/init.rc:root/init.rc \
+	$(LOCAL_PATH)/root/init.charging.rc:root/init.charging.rc \
+	$(LOCAL_PATH)/root/init.usb.rc:root/init.usb.rc \
+	$(LOCAL_PATH)/root/ueventd.rc:root/ueventd.rc \
+	$(LOCAL_PATH)/root/init.modem.rc:root/init.modem.rc \
 	$(LOCAL_PATH)/root/init.mt6589.rc:root/init.mt6589.rc \
-	$(LOCAL_PATH)/root/init.trace.rc:root/init.trace.rc \
-	$(LOCAL_PATH)/root/init.mt6589.usb.rc:root/init.mt6589.usb.rc \
+	$(LOCAL_PATH)/root/init.pro.rc:root/init.pro.rc \
 	$(LOCAL_PATH)/root/init.xlog.rc:root/init.xlog.rc \
-	$(LOCAL_PATH)/root/ueventd.mt6589.rc:root/ueventd.mt6589.rc \
-	$(LOCAL_PATH)/root/init.charging.rc:root/init.charging.rc
+	$(LOCAL_PATH)/root/init.aee.customer.rc:root/init.aee.customer.rc
 
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
@@ -79,45 +83,18 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/keylayout/hid-keyboard.kcm:system/usr/keychars/hid-keyboard.kcm
 
 PRODUCT_PROPERTY_OVERRIDES := \
-	fmradio.driver.chip=3 \
-	gps.solution.combo.chip=1 \
-	mediatek.wlan.chip=MT6628 \
-	mediatek.wlan.ctia=0 \
-	mediatek.wlan.module.postfix=_mt6628 \
-	persist.mtk.wcn.combo.chipid=-1 \
-	persist.radio.fd.counter=15 \
-	persist.radio.fd.off.counter=5 \
-	persist.radio.fd.off.r8.counter=5 \
-	persist.radio.fd.r8.counter=15 \
-	persist.radio.multisim.config=dsds \
-	persist.sys.usb.config=adb \
-	ril.current.share_modem=2 \
-	ril.external.md=0 \
-	ril.first.md=1 \
-	ril.flightmode.poweroffMD=1 \
-	ril.radiooff.poweroffMD=0 \
-	ril.specific.sm_cause=0 \
-	ril.telephony.mode=1 \
-	ro.gemini.smart_3g_switch=1 \
-	ro.mediatek.chip_ver=S01 \
-	ro.mediatek.gemini_support=true \
-	ro.mediatek.platform=MT6589 \
-	ro.mediatek.version.branch=ALPS.JB2.MP \
-	ro.mediatek.version.release=ALPS.JB2.MP.V1.2 \
-	ro.mediatek.version.sdk=1 \
-	ro.mediatek.wlan.p2p=1 \
-	ro.mediatek.wlan.wsc=1 \
-	ro.opengles.version=131072 \
-	ro.sf.lcd_density=320 \
-	wifi.direct.interface=p2p0 \
-	wifi.interface=wlan0 \
-	wifi.tethering.interface=ap0
+	persist.service.adb.enable=1 \
+	persist.sys.usb.config=mass_storage,adb
 
 # we have enough storage space to hold precise GC data
 PRODUCT_TAGS += dalvik.gc.type-precise
 
 PRODUCT_PACKAGES += \
 	gsm0710muxd \
+	hwcomposer.mt6589 \
+	gralloc.mt6589 \
+	lights.default \
+	camera.default \
 	com.android.future.usb.accessory
 
 # audio
