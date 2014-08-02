@@ -43,16 +43,14 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/fstab.mt6589:root/fstab.mt6589
 
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/root/init:root/init \
-	$(LOCAL_PATH)/root/init.rc:root/init.rc \
 	$(LOCAL_PATH)/root/init.charging.rc:root/init.charging.rc \
-	$(LOCAL_PATH)/root/init.usb.rc:root/init.usb.rc \
-	$(LOCAL_PATH)/root/ueventd.rc:root/ueventd.rc \
-	$(LOCAL_PATH)/root/init.modem.rc:root/init.modem.rc \
 	$(LOCAL_PATH)/root/init.mt6589.rc:root/init.mt6589.rc \
-	$(LOCAL_PATH)/root/init.pro.rc:root/init.pro.rc \
-	$(LOCAL_PATH)/root/init.xlog.rc:root/init.xlog.rc \
-	$(LOCAL_PATH)/root/init.aee.customer.rc:root/init.aee.customer.rc
+	$(LOCAL_PATH)/root/init.mt6589.usb.rc:root/init.mt6589.usb.rc \
+	$(LOCAL_PATH)/root/ueventd.mt6589.rc:root/ueventd.mt6589.rc \
+	$(LOCAL_PATH)/root/init.modem.rc:root/init.modem.rc \
+	$(LOCAL_PATH)/root/init.project.rc:root/init.project.rc \
+	$(LOCAL_PATH)/root/init.protect.rc:root/init.protect.rc \
+	$(LOCAL_PATH)/root/init.xlog.rc:root/init.xlog.rc
 
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
@@ -91,10 +89,6 @@ PRODUCT_TAGS += dalvik.gc.type-precise
 
 PRODUCT_PACKAGES += \
 	gsm0710muxd \
-	hwcomposer.mt6589 \
-	gralloc.mt6589 \
-	lights.default \
-	camera.default \
 	com.android.future.usb.accessory
 
 # audio

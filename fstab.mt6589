@@ -6,5 +6,9 @@
 /emmc@android     /system             ext4      ro,noatime                              wait
 /emmc@cache       /cache              ext4      noatime,nosuid,nodev,noauto_da_alloc    wait
 /emmc@usrdata     /data               ext4      noatime,nosuid,nodev,noauto_da_alloc    wait,encryptable=footer
+/emmc@protect_f	  /protect_f 	      ext4	noatime nosuid nodev commit=1,nodelalloc,noauto_da_alloc wait
+/emmc@protect_s   /protect_s          ext4	noatime nosuid nodev commit=1,nodelalloc,noauto_da_alloc wait
 
-/devices/platform/mtk-msdc.1/mmc_host/mmc1 /storage/sdcard vfat defaults voldmanaged=sdcard:auto
+/devices/platform/mtk-msdc.0/mmc_host/mmc0 /storage/sdcard0 vfat defaults voldmanaged=sdcard0:8,nonremovable
+/devices/platform/mtk-msdc.1/mmc_host/mmc1 /storage/sdcard1 vfat defaults voldmanaged=sdcard1:auto
+

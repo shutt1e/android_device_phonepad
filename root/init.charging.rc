@@ -148,8 +148,6 @@ loglevel 6
 
 # mount different fs start
 
-    write /proc/bootprof "INIT:eMMC:Mount_START"
-    exec /sbin/e2fsck -p /emmc@android
     mount ext4 /emmc@android /system wait commit=1,noauto_da_alloc
 
     mkdir /system/secro 0600 system system
@@ -167,15 +165,9 @@ loglevel 6
 #agold lcx 20121218 for root end
   
     mount ext4 /emmc@android /system noatime ro remount wait
-    exec /sbin/e2fsck -pfD /emmc@usrdata
-    exec /sbin/tune2fs -O has_journal /emmc@usrdata
-    exec /system/bin/ext4_resize
     mount ext4 /emmc@usrdata /data noatime nosuid nodev wait noauto_da_alloc,discard
-    exec /sbin/e2fsck -p /emmc@cache
-    exec /sbin/tune2fs -O has_journal /emmc@cache
     mount ext4 /emmc@cache /cache noatime nosuid nodev wait noauto_da_alloc,discard
     mount ext4 /emmc@sec_ro /system/secro ro wait
-    write /proc/bootprof "INIT:eMMC:Mount_END"
 
 # mount different fs end
 
@@ -1363,4 +1355,5 @@ service nvram_proximity /system/bin/nvram_proximity
 
 on property:init.svc.nvram_daemon=stopped
     start nvram_proximity
-#[AGOLD][end]
+#[AGOLD]
+

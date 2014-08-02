@@ -26,14 +26,11 @@ ro.mediatek.wlan.p2p=1
 # MTK, mtk03034, 20101213 {
 mediatek.wlan.ctia=0
 # MTK, mtk03034 20101213}
-
-
 #
 wifi.tethering.interface=ap0
 #
-
 ro.opengles.version=131072
-
+ro.sf.lcd_density=320
 wifi.direct.interface=p2p0
 dalvik.vm.heapgrowthlimit=128m
 dalvik.vm.heapsize=256m
@@ -199,4 +196,5 @@ ro.hallwindow.visible=no
 ro.product.device=PhonePadDuo
 ro.build.wifi.allowed.key=wpa2_psk
 net.bt.name=Android
+ro.build.selinux=1
 dalvik.vm.stack-trace-file=/data/anr/traces.txt

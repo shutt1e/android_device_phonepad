@@ -60,15 +60,20 @@ USE_OPENGL_RENDERER := true
 TARGET_PROVIDES_LIBAUDIO := true
 BOARD_USES_MTK_AUDIO := true
 
-# Bluetooth
+# Some framework code requires this to enable BT
 BOARD_HAVE_BLUETOOTH := true
-BOARD_BLUEDROID_VENDOR_CONF := device/mediacom/PhonePadDuo/bluetooth/vnd_mtk6589.txt
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/mediacom/PhonePadDuo/bluetooth/include
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/mediacom/PhonePadDuo/bluetooth
 
 # kernel
 TARGET_PREBUILT_KERNEL := $(DEVICE_FOLDER)/prebuilt/kernel
-TARGET_KERNEL_SELINUX_CONFIG :=
-TARGET_PROVIDES_INIT_RC := true
+
+# init
+#TARGET_PROVIDES_INIT_RC := true
+#HAVE_AEE_FEATURE := yes
+BUILD_MTK_INIT := true
+MTK_KERNEL_POWER_OFF_CHARGING := true
+
+
 # adb has root
 ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=0  # debug
 ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0  # debug
@@ -101,6 +106,8 @@ CWM_EMMC_RECOVERY_DEVICE_NAME := /dev/recovery
 CWM_EMMC_RECOVERY_DEVICE_SIZE := 0x00600000 # 6291456 bytes
 CWM_EMMC_UBOOT_DEVICE_NAME := /dev/uboot
 CWM_EMMC_UBOOT_DEVICE_SIZE := 0x00060000 # 393216 bytes (from scatter file)
+# Vold
+BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/gadget/lun%d/file
 
 # wifi
